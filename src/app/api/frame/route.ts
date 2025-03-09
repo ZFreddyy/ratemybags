@@ -7,7 +7,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const data = await req.json();
     
     // Extract the button that was clicked and any state information
-    const { buttonIndex, untrustedData } = data;
+    const { buttonIndex } = data;
     
     // Get state from previous frame or initialize new state
     let state: FrameState = { step: 'initial' };
