@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Circle background -->
+  <circle cx="60" cy="60" r="60" fill="#3b82f6" />
+  
+  <!-- Portfolio uptrend graph -->
+  <path d="M20,90 L30,75 L45,80 L60,55 L75,45 L90,25" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Data points -->
+  <circle cx="30" cy="75" r="4" fill="#22c55e" />
+  <circle cx="45" cy="80" r="4" fill="#ffcc00" />
+  <circle cx="60" cy="55" r="4" fill="#22c55e" />
+  <circle cx="75" cy="45" r="4" fill="#22c55e" />
+  <circle cx="90" cy="25" r="4" fill="#22c55e" />
+  
+  <!-- Star rating (subtle) -->
+  <path d="M65,20 L68,26 L74,27 L69,32 L70,38 L65,35 L60,38 L61,32 L56,27 L62,26 Z" fill="#fbbf24" />
+</svg>
