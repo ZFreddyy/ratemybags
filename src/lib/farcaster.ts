@@ -1,19 +1,30 @@
-/**
- * Farcaster Frame Utilities
- * 
- * This module provides helper functions for creating and validating Farcaster Frames.
- */
-
-/**
- * Generate HTML for a Farcaster Frame
- * 
- * @param imageUrl URL of the image to display in the frame
- * @param buttons Array of button text (max 4)
- * @param postUrl URL to post to when a button is clicked
- * @param state State to pass to the next frame
- * @returns HTML string for the frame
- */
-export function generateFrameHTML(
+// Define proper types for Farcaster messages
+interface FarcasterUntrustedData {
+    fid: number;
+    username?: string;
+    displayName?: string;
+    pfp?: string;
+    castId?: string;
+    [key: string]: unknown;
+  }
+  
+  interface FarcasterMessage {
+    untrustedData?: FarcasterUntrustedData;
+    buttonIndex?: number;
+    state?: string;
+    [key: string]: unknown;
+  }
+  
+  /**
+   * Generate HTML for a Farcaster Frame
+   * 
+   * @param imageUrl URL of the image to display in the frame
+   * @param buttons Array of button text (max 4)
+   * @param postUrl URL to post to when a button is clicked
+   * @param state State to pass to the next frame
+   * @returns HTML string for the frame
+   */
+  export function generateFrameHTML(
     imageUrl: string,
     buttons: string[],
     postUrl: string,
@@ -63,7 +74,7 @@ export function generateFrameHTML(
    * @param message The message to verify
    * @returns True if the message appears to be from a legitimate Farcaster client
    */
-  export function verifyFrameMessage(message: any): boolean {
+  export function verifyFrameMessage(message: FarcasterMessage): boolean {
     // Basic validation - check if the message has expected Farcaster fields
     if (!message || !message.untrustedData || !message.untrustedData.fid) {
       return false;
@@ -83,7 +94,7 @@ export function generateFrameHTML(
    * @param message The Farcaster Frame message
    * @returns User information
    */
-  export function extractUserFromMessage(message: any): {
+  export function extractUserFromMessage(message: FarcasterMessage): {
     fid: number;
     username?: string;
     displayName?: string;
